@@ -3,6 +3,16 @@
 :root {
     --primary: #4ae54a;
     --font: 'Inconsolata', monospace;
+    --card-bg-color: #6B7151;
+    /*Borders*/
+    --border-color: black;
+    --card-border-radius :18px;
+    --input-and-btn-border-radius: 9px;
+    /*-------*/
+    /*Sign Up Site*/
+    --cancel-btn-color: red;
+    --create-accaunt-btn-color: green;
+    /*------------*/
 }
 
 * {
@@ -105,3 +115,111 @@ nav li:first-child{
         width: 100%;
     }
 }
+
+/*Sign Up Site*/
+
+.sign-up-card-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 90vh;
+    
+
+}
+
+.sign-up-card{
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--card-bg-color);
+    gap: 2rem;
+}
+
+.sign-up-card-inputs{
+    display: flex;
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+
+.sign-up-card-inputs input{
+    height: 3rem;
+    padding: 1rem;
+    font-size: larger;
+    border-radius: var(--input-and-btn-border-radius);
+    border-color: var(--border-color);
+}
+
+.sign-up-card-inputs label{
+    font-size: larger;
+}
+
+/*--Buttons--*/
+.sign-up-card-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.sign-up-card-btn-container input{
+    width: 50%;
+    height: 3rem;
+    font-size: larger;
+    border-color: var(--border-color);
+}
+
+#sign-up-cancle-btn{
+    background-color: var(--cancel-btn-color);
+
+    border-top-left-radius: var(--input-and-btn-border-radius);
+    border-bottom-left-radius: var(--input-and-btn-border-radius);
+}
+#sign-up-create-btn{
+    background-color: var(--create-accaunt-btn-color);
+
+    border-top-right-radius: var(--input-and-btn-border-radius);
+    border-bottom-right-radius: var(--input-and-btn-border-radius);
+}
+/*--------------------*/
+
+@media(max-width: 800px){
+    .sign-up-card-container{
+        width: 100%;
+        height: 80vh;
+        padding-bottom: 5rem;
+    }
+
+    .sign-up-card-width {
+        padding: 1rem;
+        width: 100%;
+
+        border-radius: var(--card-border-radius);
+        border-style: solid;
+        border-color: black;
+        margin: 0 0.2rem 0 0.2rem;
+    }
+
+
+}
+
+@media(min-width: 800px){
+    .sign-up-card-container{
+        width: 100%;
+        height: 100vh;
+
+    }
+
+    .sign-up-card-width {
+        padding: 2rem;
+        width: 25rem;
+        
+        border-radius: var(--card-border-radius);
+        border-style: solid;
+        border-color: black;
+    }
+
+}
+
+/*-----------------*/

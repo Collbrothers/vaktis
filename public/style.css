@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 main {
@@ -22,12 +23,13 @@ main {
     padding: 2rem;
 }
 
-#page-footer {
+#footer {
     background-color: #1a1a2e;
     color: white;
     padding: 3rem 2rem;
     width: 100vw;
-    position: relative;
+    margin-top: auto;
+
     }
 
 .footer-content {

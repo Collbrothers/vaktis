@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./public/style.css">
 
 <body>
-    <footer id="page-footer">
+    <footer id="footer">
         <div class="footer-content">
             <div class="contact-info">
                 <h4>Kontakta oss</h4>

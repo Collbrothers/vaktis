@@ -24,7 +24,7 @@ main {
 }
 
 #footer {
-    background-color: #1a1a2e;
+    background-color: #6B7151;
     color: white;
     padding: 3rem 2rem;
     width: 100vw;
@@ -39,6 +39,7 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 2rem;
+    color: white;
 }
 
 .contact-info, .om-oss {
@@ -46,10 +47,31 @@ main {
     min-width: 250px;
 }
 
-.contact-info h4, .om-oss h3 {
-    color: #667eea;
-    margin-bottom: 1rem;
+a:link {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: none;
 }
+
+a:visited {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
 
 .contact-info p {
     margin-bottom: 0.5rem;
@@ -58,6 +80,7 @@ main {
 .om-oss {
     text-align: center;
 }
+
 
 .footer-bottom {
     text-align: center;

@@ -18,7 +18,7 @@ session_start();
             <li><a href="../pages/report.php">Rapportera</a></li>
             <li><a href="../pages/about.php">Om Oss</a></li>
             <li><a href="../pages/signup.php">Skapa Konto</a></li>
-            <li><a href="../pages/signin.php">Logga in</a></li>
+            <li><a href="../pages/signin.php">Logga In</a></li>
         </ul>
         <ul>
             <li><a class="logo-click-on-phone" href="index.php"><img src="../public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>

@@ -1,0 +1,29 @@
+Options -Indexes
+ServerSignature Off
+
+# on only for dev, off in production.
+php_flag display_errors on
+
+
+# TODO: Implement minimal yet custom 404 page, or redirect to index.php.
+ErrorDocument 404 /pages/404.php
+
+
+RewriteEngine On
+
+# Serve root as pages/index.php
+RewriteRule ^$ pages/index.php [L]
+
+# Allow access to public
+RewriteRule ^public/ - [L]
+
+# Allow access to .php files in pages/
+RewriteRule ^pages/.+\.php$ - [L]
+
+# Map /slug to pages/slug.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ pages/$1.php [L]
+
+# Block everything else and return 404 to prevent enumeration, security through obscurity hehe
+RewriteRule ^ - [R=404,L]

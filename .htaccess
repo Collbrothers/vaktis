@@ -6,7 +6,7 @@ php_flag display_errors on
 
 
 # TODO: Implement minimal yet custom 404 page, or redirect to index.php.
-ErrorDocument 404 /pages/404.php
+ErrorDocument 404 /404
 
 
 RewriteEngine On

@@ -91,12 +91,33 @@ nav li:first-child{
     margin-right: 1rem;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+#home-404 {
+    margin-top: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: #6B7151;
+    border-radius: 0.4rem;
+}
+
 @media(max-width: 800px){
     .hideOnMobile{
         display: none;
     }
     .menu-button{
         display: block;
+    }
+  
+    #header-404 {
+        font-size: 1.5em;
     }
 }
 

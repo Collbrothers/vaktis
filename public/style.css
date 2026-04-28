@@ -38,6 +38,10 @@ body {
     min-height: 100vh;
 }
 
+main {
+    padding-top: 100px;
+}
+
 /*::::Nav bar::::*/
 nav{
     background-color: var(--nav-bar-bg-color);
@@ -161,166 +165,169 @@ nav li:first-child{
     background-color: #575d44;
 }
 
-@media(max-width: 800px){
-    .hideOnMobile{
+@media(max-width: 800px) {
+    .hideOnMobile {
         display: none;
     }
-    .menu-button{
+
+    .menu-button {
         display: block;
     }
 
     #header-404 {
         font-size: 1.5em;
 
-    .logo-click-on-phone{
-        margin-right: 7rem;
-        width: max-content;
+        .logo-click-on-phone {
+            margin-right: 7rem;
+            width: max-content;
+        }
     }
 }
 
-@media(max-width: 400px){
-    .sidebar{
+    @media (max-width: 400px) {
+        .sidebar {
+            width: 100%;
+        }
+    }
+    /*::::::::::::::::::::::*/
+    /*:::::Sign Up Site:::::*/
+    .sign-up-card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         width: 100%;
-    }
-}
-/*::::::::::::::::::::::*/
-
-/*:::::Sign Up Site:::::*/
-
-.sign-up-card-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 90vh;
-    
-
-}
-
-.sign-up-card{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card-bg-color);
-    gap: 2rem;
-}
-
-#h1-skapa-konto-container{
-    background-color: var(--bg-color);
-    border-style: solid;
-    border-radius: 25px;
-    border-color: var(--border-color);
-    border-width: 0.1rem;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-}
-#h1-skapa-konto-container h1{
-    color: #083B1C;
-}
+        height: 90vh;
 
 
-.sign-up-card-inputs{
-    display: flex;
-    flex-direction: column; 
-    gap: 0.5rem;
-}
-
-.sign-up-card-inputs input{
-    height: 3rem;
-    padding: 1rem;
-    font-size: larger;
-    border-radius: var(--border-radius-input-and-btn);
-    border-color: var(--border-color);
-}
-
-.sign-up-card-inputs label{
-    font-size: larger;
-}
-
-/*--Buttons--*/
-.sign-up-card-btn-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.sign-up-card-btn-container input{
-    width: 50%;
-    height: 3rem;
-    font-size: larger;
-    border-color: var(--border-color);
-}
-
-#sign-up-cancle-btn{
-    color: var(--sign-up-site-btn-text-color);
-    background-color: var(--cancel-btn-color);
-    border-radius: var(--border-radius-input-and-btn);
-}
-#sign-up-cancle-btn:hover{
-    background-color: var(--cancel-btn-hover-color);
-}
-
-#sign-up-create-btn{
-    color: var(--sign-up-site-btn-text-color);
-    background-color: var(--create-accaunt-btn-color);
-    border-radius: var(--border-radius-input-and-btn);
-}
-#sign-up-create-btn:hover{
-    background-color: var(--create-accaunt-btn-hover-color);
-}
-/*-------------*/
-
-@media(max-width: 800px){
-    .sign-up-card-container{
-        width: 100%;
-        height: 80vh;
-        padding-bottom: 5rem;
     }
 
-    .sign-up-card-width {
+    .sign-up-card {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--card-bg-color);
+        gap: 2rem;
+    }
+
+    #h1-skapa-konto-container {
+        background-color: var(--bg-color);
+        border-style: solid;
+        border-radius: 25px;
+        border-color: var(--border-color);
+        border-width: 0.1rem;
         padding: 1rem;
-        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
-        border-radius: var(--border-radius-card);
-        border-style: solid;
-        border-color: black;
-        margin: 0 0.2rem 0 0.2rem;
+    #h1-skapa-konto-container h1 {
+        color: #083B1C;
     }
 
 
-}
-/*----Computer Screen----*/
-@media(min-width: 800px){
-    .sign-up-card-container{
-        width: 100%;
-        height: 100vh;
-
+    .sign-up-card-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
-    .sign-up-card-width {
-        padding: 2rem;
-        width: 23rem;
-        
-        border-radius: var(--border-radius-card);
-        border-style: solid;
-        border-color: black;
-    }
-
-    .sign-up-card-inputs input{
+    .sign-up-card-inputs input {
         height: 3rem;
-        padding: 0.9rem;
-        font-size:medium;
+        padding: 1rem;
+        font-size: larger;
+        border-radius: var(--border-radius-input-and-btn);
+        border-color: var(--border-color);
     }
 
-    .sign-up-card{
-        gap: 1rem;
+    .sign-up-card-inputs label {
+        font-size: larger;
     }
 
-    .sign-up-card-btn-container input{
+    /*--Buttons--*/
+    .sign-up-card-btn-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .sign-up-card-btn-container input {
+        width: 50%;
         height: 3rem;
+        font-size: larger;
+        border-color: var(--border-color);
     }
-}
+
+    #sign-up-cancle-btn {
+        color: var(--sign-up-site-btn-text-color);
+        background-color: var(--cancel-btn-color);
+        border-radius: var(--border-radius-input-and-btn);
+    }
+
+    #sign-up-cancle-btn:hover {
+        background-color: var(--cancel-btn-hover-color);
+    }
+
+    #sign-up-create-btn {
+        color: var(--sign-up-site-btn-text-color);
+        background-color: var(--create-accaunt-btn-color);
+        border-radius: var(--border-radius-input-and-btn);
+    }
+
+    #sign-up-create-btn:hover {
+        background-color: var(--create-accaunt-btn-hover-color);
+    }
+
+    /*-------------*/
+    @media (max-width: 800px) {
+        .sign-up-card-container {
+            width: 100%;
+            height: 80vh;
+            padding-bottom: 5rem;
+        }
+
+        .sign-up-card-width {
+            padding: 1rem;
+            width: 100%;
+
+            border-radius: var(--border-radius-card);
+            border-style: solid;
+            border-color: black;
+            margin: 0 0.2rem 0 0.2rem;
+        }
+
+
+    }
+    /*----Computer Screen----*/
+    @media (min-width: 800px) {
+        .sign-up-card-container {
+            width: 100%;
+            height: 100vh;
+
+        }
+
+        .sign-up-card-width {
+            padding: 2rem;
+            width: 23rem;
+
+            border-radius: var(--border-radius-card);
+            border-style: solid;
+            border-color: black;
+        }
+
+        .sign-up-card-inputs input {
+            height: 3rem;
+            padding: 0.9rem;
+            font-size: medium;
+        }
+
+        .sign-up-card {
+            gap: 1rem;
+        }
+
+        .sign-up-card-btn-container input {
+            height: 3rem;
+        }
+    }
 
 /*:::::::::::::::::::::::::::::*/

@@ -38,10 +38,15 @@ body {
     min-height: 100vh;
 }
 
-/*Nav bar*/
+/*::::Nav bar::::*/
 nav{
     background-color: var(--nav-bar-bg-color);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0);
+    position: fixed;
+    left: 0rem;
+    right: 0rem;
+    top: 0rem;
+    z-index: 99999;
 }
 
 nav ul{
@@ -178,7 +183,7 @@ nav li:first-child{
         width: 100%;
     }
 }
-/*-----------------------*/
+/*::::::::::::::::::::::*/
 
 /*:::::Sign Up Site:::::*/
 

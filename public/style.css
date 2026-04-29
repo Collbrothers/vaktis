@@ -164,6 +164,32 @@ nav li:first-child{
 .nav-button:hover{
     background-color: #575d44;
 }
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    #header-404 {
+        font-size: 1.5em;
+    }
+
+    .logo-click-on-phone {
+        margin-right: 7rem;
+        width: max-content;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+/*::::::::::::::::::::::*/
 /*:::::Sign Up Site:::::*/
 .sign-up-card-container {
     display: flex;

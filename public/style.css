@@ -36,294 +36,75 @@
 body {
     font-family: var(--font);
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
-/*::::Nav bar::::*/
-nav{
-    background-color: var(--nav-bar-bg-color);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0);
-    position: sticky;
-    left: 0rem;
-    right: 0rem;
-    top: 0rem;
-    z-index: 99999;
+main {
+    flex: 1;
+    padding: 2rem;
 }
 
-nav ul{
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-nav li{
-    height: 6rem;
-}
-
-nav a{
-    height: 100%;
-    padding: 0 30px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: var(--nav-bar-text-color-important);
-    font-size: var(--nav-bar-font-size);
-}
-
-nav a img{
-    width: 12rem;
-    height: 90px;
-    object-fit: cover;
-}
-
-nav li:first-child{
-    margin-right: auto;
-}
-
-.sidebar{
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 999;
-    background-color: rgba(255, 255, 255, 0.466);
-    backdrop-filter: blur(10px);
-    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.sidebar li{
-    width: 100%;
-}
-
-.sidebar a{
-    width: 100%;
-}
-
-.menu-button{
-    display: none;
-}
-
-.nav-button-important{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    background-color: var(--nav-bar-btn-color);
-    border-radius: var(--border-radius-input-and-btn);
-    height: 3rem;
-    width: max-content;
-    margin-right: 1rem;
-}
-
-.nav-button-important:hover{
-    background-color: #B0A696;
-    border-radius: var(--border-radius-input-and-btn);
-}
-
-.nav-button{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    border-radius: var(--border-radius-input-and-btn);
-    border-width: var(--border-width);
-    border-color: var(--border-color);
-    height: 3rem;
-    width: max-content;
-    margin-right: 1rem;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-#home-404 {
-    margin-top: 0.5rem;
-    padding: 1rem 2rem;
+#footer {
     background-color: #6B7151;
-    border-radius: 0.4rem;
-}
-.nav-button a{
-    color: var(--nav-bar-text-color);
-}
+    color: white;
+    padding: 3rem 2rem;
+    width: 100vw;
+    margin-top: auto;
 
-.nav-button:hover{
-    background-color: #575d44;
-}
-
-@media(max-width: 800px) {
-    .hideOnMobile {
-        display: none;
     }
 
-    .menu-button {
-        display: block;
-    }
-
-    #header-404 {
-        font-size: 1.5em;
-
-        .logo-click-on-phone {
-            margin-right: 7rem;
-            width: max-content;
-        }
-    }
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    color: white;
 }
 
-    @media (max-width: 400px) {
-        .sidebar {
-            width: 100%;
-        }
+.contact-info, .om-oss {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact-link {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.om-oss-link {
+  color: #f5f0e8;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.om-oss {
+    text-align: center;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #page-footer {
+        padding: 2rem 1rem;
     }
-    /*::::::::::::::::::::::*/
-    /*:::::Sign Up Site:::::*/
-    .sign-up-card-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 100%;
-        height: 90vh;
-
-
-    }
-
-    .sign-up-card {
-        display: flex;
+    
+    .footer-content {
         flex-direction: column;
-        background-color: var(--card-bg-color);
-        gap: 2rem;
+        text-align: center;
+        gap: 1.5rem;
     }
-
-    #h1-skapa-konto-container {
-        background-color: var(--bg-color);
-        border-style: solid;
-        border-radius: 25px;
-        border-color: var(--border-color);
-        border-width: 0.1rem;
-        padding: 1rem;
-        display: flex;
-        justify-content: center;
-    }
-
-    #h1-skapa-konto-container h1 {
-        color: #083B1C;
-    }
-
-
-    .sign-up-card-inputs {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .sign-up-card-inputs input {
-        height: 3rem;
-        padding: 1rem;
-        font-size: larger;
-        border-radius: var(--border-radius-input-and-btn);
-        border-color: var(--border-color);
-    }
-
-    .sign-up-card-inputs label {
-        font-size: larger;
-    }
-
-    /*--Buttons--*/
-    .sign-up-card-btn-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .sign-up-card-btn-container input {
-        width: 50%;
-        height: 3rem;
-        font-size: larger;
-        border-color: var(--border-color);
-    }
-
-    #sign-up-cancle-btn {
-        color: var(--sign-up-site-btn-text-color);
-        background-color: var(--cancel-btn-color);
-        border-radius: var(--border-radius-input-and-btn);
-    }
-
-    #sign-up-cancle-btn:hover {
-        background-color: var(--cancel-btn-hover-color);
-    }
-
-    #sign-up-create-btn {
-        color: var(--sign-up-site-btn-text-color);
-        background-color: var(--create-accaunt-btn-color);
-        border-radius: var(--border-radius-input-and-btn);
-    }
-
-    #sign-up-create-btn:hover {
-        background-color: var(--create-accaunt-btn-hover-color);
-    }
-
-    /*-------------*/
-    @media (max-width: 800px) {
-        .sign-up-card-container {
-            width: 100%;
-            height: 80vh;
-            padding-bottom: 5rem;
-        }
-
-        .sign-up-card-width {
-            padding: 1rem;
-            width: 100%;
-
-            border-radius: var(--border-radius-card);
-            border-style: solid;
-            border-color: black;
-            margin: 0 0.2rem 0 0.2rem;
-        }
-
-
-    }
-    /*----Computer Screen----*/
-    @media (min-width: 800px) {
-        .sign-up-card-container {
-            width: 100%;
-            height: 100vh;
-
-        }
-
-        .sign-up-card-width {
-            padding: 2rem;
-            width: 23rem;
-
-            border-radius: var(--border-radius-card);
-            border-style: solid;
-            border-color: black;
-        }
-
-        .sign-up-card-inputs input {
-            height: 3rem;
-            padding: 0.9rem;
-            font-size: medium;
-        }
-
-        .sign-up-card {
-            gap: 1rem;
-        }
-
-        .sign-up-card-btn-container input {
-            height: 3rem;
-        }
-    }
-
-/*:::::::::::::::::::::::::::::*/
+}

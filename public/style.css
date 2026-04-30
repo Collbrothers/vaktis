@@ -3,6 +3,28 @@
 :root {
     --primary: #4ae54a;
     --font: 'Inconsolata', monospace;
+    --card-bg-color: #6B7151;
+    --bg-color: #E1D6C4;
+    /*Borders*/
+    --border-color: black;
+    --border-radius-card :18px;
+    --border-radius-input-and-btn: 23px;
+    --border-width: 0.149rem;
+    /*-------*/
+    /*Nav Bar*/
+    --nav-bar-bg-color: #6B7151;
+    --nav-bar-text-color-important: black;
+    --nav-bar-text-color: #f5f0e8;
+    --nav-bar-btn-color: #E1D6C4;
+    --nav-bar-font-size: 20px;
+    /*-------*/
+    /*Sign Up Site*/
+    --sign-up-site-btn-text-color: #083B1C;
+    --cancel-btn-color: #949479;
+    --cancel-btn-hover-color: #414532;
+    --create-accaunt-btn-color: #949479;
+    --create-accaunt-btn-hover-color: #414532;
+    /*------------*/
 }
 
 * {
@@ -12,8 +34,7 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    font-family: var(--font);
     min-height: 100vh;
     min-height: 100dvh;
 }

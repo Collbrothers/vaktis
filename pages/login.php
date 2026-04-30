@@ -17,5 +17,5 @@
                 <input type="button" id="sign-up-create-btn" value="Logga In">
             </div>
         </form>
-    </div><?php require_once '../includes/footer.php'; ?>
-</main>
+    </main>
+</div><?php require_once '../includes/footer.php'; ?>

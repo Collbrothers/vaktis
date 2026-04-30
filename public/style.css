@@ -19,7 +19,7 @@
     --nav-bar-font-size: 20px;
     /*-------*/
     /*Sign Up Site*/
-    --sign-up-site-btn-text-color: #083B1C;
+    --sign-up-site-btn-text-color: #000000;
     --create-accaunt-btn-color: #14cd14;  
     --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
@@ -280,7 +280,7 @@ nav li:first-child{
     }
 
     .sign-up-card{
-        margin-top: 12rem;
+        margin-top: 9rem;
     }
 }
 /*-----------------------*/

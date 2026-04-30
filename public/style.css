@@ -9,19 +9,19 @@
     --border-color: black;
     --border-radius-card :18px;
     --border-radius-input-and-btn: 23px;
-    --border-width: 0.2rem;
+    --border-width: 0.149rem;
     /*-------*/
     /*Nav Bar*/
     --nav-bar-bg-color: #6B7151;
-    --nav-bar-text-color: black;
+    --nav-bar-text-color-important: black;
+    --nav-bar-text-color: #f5f0e8;
     --nav-bar-btn-color: #E1D6C4;
+    --nav-bar-font-size: 20px;
     /*-------*/
     /*Sign Up Site*/
-    --sign-up-site-btn-text-color: #083B1C;
-    --cancel-btn-color: #949479;
-    --cancel-btn-hover-color: #414532;
-    --create-accaunt-btn-color: #949479;
-    --create-accaunt-btn-hover-color: #414532;
+    --sign-up-site-btn-text-color: #000000;
+    --create-accaunt-btn-color: #14cd14;  
+    --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
 }
 
@@ -130,139 +130,140 @@ nav li:first-child{
 /*-----------------------*/
 
 /*:::::Sign Up Site:::::*/
-
-.sign-up-card-container{
+.sign-up-card-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-
     width: 100%;
     height: 90vh;
-    
-
 }
 
-.sign-up-card{
+.sign-up-card {
     display: flex;
     flex-direction: column;
     background-color: var(--card-bg-color);
     gap: 2rem;
+    height: fit-content;
 }
 
-#h1-skapa-konto-container{
+.login-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg-color);
+    gap: 2rem;
+    height: fit-content;
+}
+
+#h1-skapa-konto-container {
     background-color: var(--bg-color);
-    border-style: solid;
     border-radius: 25px;
-    border-color: var(--border-color);
     border-width: 0.1rem;
     padding: 1rem;
     display: flex;
     justify-content: center;
 }
-#h1-skapa-konto-container h1{
+
+#h1-skapa-konto-container h1 {
     color: #083B1C;
 }
 
 
-.sign-up-card-inputs{
+.sign-up-card-inputs {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 0.5rem;
 }
 
-.sign-up-card-inputs input{
+.sign-up-card-inputs input {
     height: 3rem;
     padding: 1rem;
     font-size: larger;
     border-radius: var(--border-radius-input-and-btn);
-    border-color: var(--border-color);
+    border: 1px solid transparent;
 }
 
-.sign-up-card-inputs label{
+.sign-up-card-inputs label {
     font-size: larger;
+    color: var(--nav-bar-text-color);
 }
 
 /*--Buttons--*/
-.sign-up-card-btn-container{
+.sign-up-card-btn-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
 }
 
-.sign-up-card-btn-container input{
-    width: 50%;
+.sign-up-card-btn-container input {
+    width: 100%;
     height: 3rem;
     font-size: larger;
-    border-color: var(--border-color);
 }
 
-#sign-up-cancle-btn{
-    color: var(--sign-up-site-btn-text-color);
-    background-color: var(--cancel-btn-color);
-    border-radius: var(--border-radius-input-and-btn);
-}
-#sign-up-cancle-btn:hover{
-    background-color: var(--cancel-btn-hover-color);
-}
-
-#sign-up-create-btn{
+#sign-up-create-btn {
     color: var(--sign-up-site-btn-text-color);
     background-color: var(--create-accaunt-btn-color);
     border-radius: var(--border-radius-input-and-btn);
+    border: 10px solid transparent;
 }
-#sign-up-create-btn:hover{
+
+#sign-up-create-btn:hover {
     background-color: var(--create-accaunt-btn-hover-color);
 }
+
 /*-------------*/
 
-@media(max-width: 800px){
-    .sign-up-card-container{
+/*----Phone Screen----*/
+@media (max-width: 800px) {
+    .sign-up-card-container {
         width: 100%;
-        height: 80vh;
+        height: 90vh;
         padding-bottom: 5rem;
     }
 
     .sign-up-card-width {
         padding: 1rem;
         width: 100%;
-
         border-radius: var(--border-radius-card);
-        border-style: solid;
-        border-color: black;
         margin: 0 0.2rem 0 0.2rem;
     }
 
-
+    .sign-up-card{
+        margin-top: 9rem;
+    }
 }
+/*-----------------------*/
+
 /*----Computer Screen----*/
-@media(min-width: 800px){
-    .sign-up-card-container{
+@media (min-width: 800px) {
+    .sign-up-card-container {
         width: 100%;
         height: 100vh;
-
     }
 
     .sign-up-card-width {
         padding: 2rem;
         width: 23rem;
-        
         border-radius: var(--border-radius-card);
-        border-style: solid;
-        border-color: black;
     }
 
-    .sign-up-card-inputs input{
+    .sign-up-card-inputs input {
         height: 3rem;
         padding: 0.9rem;
-        font-size:medium;
+        font-size: medium;
     }
 
-    .sign-up-card{
+    .sign-up-card {
+        margin-top: 8rem;
         gap: 1rem;
     }
 
-    .sign-up-card-btn-container input{
+    .login-card{
+        margin-top: 1.2rem;
+        gap: 1rem;
+    }
+
+    .sign-up-card-btn-container input {
         height: 3rem;
     }
 }

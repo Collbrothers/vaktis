@@ -1,6 +1,6 @@
 <?php require_once '../includes/header.php'; ?>
 <main>
-    <div class="sign-up-card-container">
+    <div class="sign-up-card-container sign-in-card-top-margin">
         <form class="sign-up-card sign-up-card-width" action="post">
             <div id="h1-skapa-konto-container">
                 <h1>Logga In</h1>

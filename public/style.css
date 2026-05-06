@@ -302,8 +302,13 @@ nav li:first-child{
         font-size: medium;
     }
 
-    .sign-up-card {
-        margin-top: 8rem;
+    .sign-up-card-top-margin {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .sign-in-card-top-margin {
+        margin-top: 6rem;
         gap: 1rem;
     }
 

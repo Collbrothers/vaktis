@@ -19,11 +19,9 @@
     --nav-bar-font-size: 20px;
     /*-------*/
     /*Sign Up Site*/
-    --sign-up-site-btn-text-color: #083B1C;
-    --cancel-btn-color: #949479;
-    --cancel-btn-hover-color: #414532;
-    --create-accaunt-btn-color: #949479;
-    --create-accaunt-btn-hover-color: #414532;
+    --sign-up-site-btn-text-color: #000000;
+    --create-accaunt-btn-color: #14cd14;  
+    --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
 }
 
@@ -129,7 +127,9 @@ nav li:first-child{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    background-color: var(--nav-bar-btn-color);
     border-radius: var(--border-radius-input-and-btn);
+    border-style: solid;
     border-width: var(--border-width);
     border-color: var(--border-color);
     height: 3rem;

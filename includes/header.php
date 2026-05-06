@@ -7,7 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vaktis</title>
-    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="/public/style.css">
     <script src="/public/main.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@ session_start();
             <li><a href="/login">Logga In</a></li>
         </ul>
         <ul>
-            <li><a class="logo-click-on-phone" href="./"><img src="./public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
+            <li><a class="logo-click-on-phone" href="/"><img src="./public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
             <li class="hideOnMobile nav-button"><a href="/index">Annonser</a></li>
             <li class="hideOnMobile nav-button"><a href="/report">Rapportera</a></li>
             <li class="hideOnMobile nav-button"><a href="/about">Om Oss</a></li>

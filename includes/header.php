@@ -21,12 +21,12 @@ session_start();
             <li><a href="/login">Logga In</a></li>
         </ul>
         <ul>
-            <li><a class="logo-click-on-phone" href="/"><img src="../public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
+            <li><a class="logo-click-on-phone" href="/"><img src="/public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
             <li class="hideOnMobile nav-button"><a href="/index">Annonser</a></li>
             <li class="hideOnMobile nav-button"><a href="/report">Rapportera</a></li>
             <li class="hideOnMobile nav-button"><a href="/about">Om Oss</a></li>
             <li class="hideOnMobile nav-button-important"><a href="/signup">Skapa Konto</a></li>
-            <li class="hideOnMobile nav-button-important"><a href="/signin">Logga In</a></li>
+            <li class="hideOnMobile nav-button-important"><a href="/login">Logga In</a></li>
             <li class="menu-button" onclick="showSidebar()" ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#f5f0e8"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
         </ul>
     </nav>

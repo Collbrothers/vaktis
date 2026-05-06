@@ -1,7 +1,7 @@
 <?php require_once '../includes/header.php'; ?>
 <main>
     <div class="sign-up-card-container">
-        <form class="login-card sign-up-card-width" action="post">
+        <form class="sign-up-card sign-up-card-width" action="post">
             <div id="h1-skapa-konto-container">
                 <h1>Skapa Konto</h1>
             </div>

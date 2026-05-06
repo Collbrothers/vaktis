@@ -1,4 +1,4 @@
-<?php require_once '/includes/header.php'; ?>
+<?php require_once '../includes/header.php'; ?>
 <main>
     <div class="sign-up-card-container">
         <form class="sign-up-card sign-up-card-width" action="post">
@@ -18,4 +18,4 @@
             </div>
         </form>
     </main>
-</div><?php require_once '/includes/footer.php'; ?>
+</div><?php require_once '../includes/footer.php'; ?>

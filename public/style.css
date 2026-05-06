@@ -127,9 +127,9 @@ nav li:first-child{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: var(--nav-bar-btn-color);
+    
     border-radius: var(--border-radius-input-and-btn);
-    border-style: solid;
+    
     border-width: var(--border-width);
     border-color: var(--border-color);
     height: 3rem;

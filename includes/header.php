@@ -21,7 +21,7 @@ session_start();
             <li><a href="/login">Logga In</a></li>
         </ul>
         <ul>
-            <li><a class="logo-click-on-phone" href="/"><img src="./public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
+            <li><a class="logo-click-on-phone" href="/"><img src="/public/vaktis-logga.png" alt="A logo that with a dog paw followed by the text vaktis"></a></li>
             <li class="hideOnMobile nav-button"><a href="/index">Annonser</a></li>
             <li class="hideOnMobile nav-button"><a href="/report">Rapportera</a></li>
             <li class="hideOnMobile nav-button"><a href="/about">Om Oss</a></li>

@@ -20,7 +20,7 @@
     /*-------*/
     /*Sign Up Site*/
     --sign-up-site-btn-text-color: #000000;
-    --create-accaunt-btn-color: #14cd14;  
+    --create-accaunt-btn-color: #14cd14;
     --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
 }
@@ -33,7 +33,13 @@
 
 body {
     font-family: var(--font);
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 /*::::Nav bar::::*/
@@ -127,9 +133,7 @@ nav li:first-child{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    
     border-radius: var(--border-radius-input-and-btn);
-    
     border-width: var(--border-width);
     border-color: var(--border-color);
     height: 3rem;
@@ -282,6 +286,24 @@ nav li:first-child{
     }
 }
 /*-----------------------*/
+        footer {
+            gap: 1.5rem;
+            h3 {
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        .footer-info {
+            width: 100% !important;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 2rem;
+        }
+
 
 /*----Computer Screen----*/
 @media (min-width: 800px) {
@@ -318,3 +340,53 @@ nav li:first-child{
 }
 
 /*:::::::::::::::::::::::::::::*/
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 4rem;
+    background-color: var(--nav-bar-bg-color);
+    color: var(--nav-bar-text-color);
+
+    p {
+        padding-top: 0.5rem;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-top: 0.5rem;
+    }
+
+    a {
+        color: #ebfef8;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}
+
+.footer-inner-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.font-larger {
+    font-size: xx-large;
+}
+
+.footer-info {
+    width: 30%
+}

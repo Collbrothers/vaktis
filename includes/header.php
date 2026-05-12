@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vaktis</title>
     <link rel="stylesheet" href="/public/style.css">
-    <script src="/public/main.js"></script>
+    <script src="/public/main.js" defer></script>
 </head>
 <body>
     <nav>
@@ -30,3 +30,4 @@ session_start();
             <li class="menu-button" onclick="showSidebar()" ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#f5f0e8"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
         </ul>
     </nav>
+    <?php require_once '../includes/cookie.php' ?>

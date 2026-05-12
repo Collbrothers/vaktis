@@ -156,6 +156,11 @@ nav li:first-child{
     padding: 1rem 2rem;
     background-color: #6B7151;
     border-radius: 0.4rem;
+    color: #ebfef8;
+
+    &:hover {
+            filter: brightness(0.8);
+        }
 }
 
 #cookie-banner {

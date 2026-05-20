@@ -1,3 +1,5 @@
+const cookieBanner = document.getElementById("cookie-banner")
+
 function showSidebar(){
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'flex'

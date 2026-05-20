@@ -1,3 +1,4 @@
+<?php require_once '../includes/session.php'; ?>
 <?php require_once '../includes/header.php'; ?>
 <main>
     <div class="sign-up-card-container sign-in-card-top-margin">

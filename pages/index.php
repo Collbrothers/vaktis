@@ -1,3 +1,4 @@
+<?php require_once '../includes/session.php'; ?>
 <?php require_once '../includes/header.php'; ?>
 <main>
     <button class="index-filter-toggle-btn" onclick="toggleMobileFilters()">

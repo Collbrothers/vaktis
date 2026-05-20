@@ -1,8 +1,4 @@
 <?php
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
-
 // getenv() is not used here to ensure consistency over different environments.
 // This file will only be used by require_once, therefor there is no need to check if $_ENV contains keys.
 function loadEnv(string $path): void {

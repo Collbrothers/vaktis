@@ -21,7 +21,7 @@
     /*-------*/
     /*Sign Up Site*/
     --sign-up-site-btn-text-color: #000000;
-    --create-accaunt-btn-color: #14cd14;  
+    --create-accaunt-btn-color: #14cd14;
     --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
 }
@@ -34,7 +34,13 @@
 
 body {
     font-family: var(--font);
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 /*::::Nav bar::::*/
@@ -128,9 +134,7 @@ nav li:first-child{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    
     border-radius: var(--border-radius-input-and-btn);
-    
     border-width: var(--border-width);
     border-color: var(--border-color);
     height: 3rem;
@@ -153,7 +157,50 @@ nav li:first-child{
     padding: 1rem 2rem;
     background-color: #6B7151;
     border-radius: 0.4rem;
+    color: #ebfef8;
+
+    &:hover {
+            filter: brightness(0.8);
+        }
 }
+
+#cookie-banner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 2rem;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius-input-and-btn);
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--card-bg-color);
+    color: var(--nav-bar-text-color);
+
+    a {
+        color: #ebfef8;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+}
+
+.cookie-ack {
+    width: fit-content;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-input-and-btn);
+    background-color: var(--nav-bar-btn-color);
+    border-width: 0;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #B0A696;
+        scale: 102%;
+    }
+}
+
 .nav-button a{
     color: var(--nav-bar-text-color);
 }
@@ -178,6 +225,17 @@ nav li:first-child{
     .logo-click-on-phone {
         margin-right: 7rem;
         width: max-content;
+    }
+
+    #cookie-banner {
+        width: 100%;
+        top: 40%;
+    }
+
+    #cookie-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
@@ -283,6 +341,24 @@ nav li:first-child{
     }
 }
 /*-----------------------*/
+        footer {
+            gap: 1.5rem;
+            h3 {
+                padding-bottom: 0.5rem;
+            }
+        }
+
+        .footer-info {
+            width: 100% !important;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 2rem;
+        }
+
 
 /*----Computer Screen----*/
 @media (min-width: 800px) {

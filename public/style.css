@@ -10,6 +10,7 @@
     --border-radius-card :18px;
     --border-radius-input-and-btn: 23px;
     --border-width: 0.149rem;
+    --border-radius-image: 12px;
     /*-------*/
     /*Nav Bar*/
     --nav-bar-bg-color: #6B7151;
@@ -395,52 +396,441 @@ nav li:first-child{
 
 /*:::::::::::::::::::::::::::::*/
 
-footer {
+/*:::::::::::::Index:::::::::::*/
+
+.index-container{
+    display: flex;
     width: 100%;
+    height: min-content;
+}
+
+.index-card{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem 4rem;
-    background-color: var(--nav-bar-bg-color);
+    gap: 2rem;
+    padding: 1rem;
+    background-color: var(--card-bg-color);
+    height: min-content;
+    margin: 0 1rem 0 1rem;
+    border-radius: var(--border-radius-card);
     color: var(--nav-bar-text-color);
-
-    p {
-        padding-top: 0.5rem;
-    }
-
-    ul {
-        list-style: none;
-    }
-
-    li {
-        margin-top: 0.5rem;
-    }
-
-    a {
-        color: #ebfef8;
-
-        &:hover {
-            filter: brightness(0.8);
-        }
-    }
+    font-size: 18px;
+    width: fit-content;
 }
 
-.footer-inner-flex {
+.index-text{
     display: flex;
-    flex-direction: row;
-    gap: 4rem;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.footer-container {
+.index-text p{
+    font-size: 19px;
+}
+
+/*----Index Image----*/
+
+.index-card-image{
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+}
+
+.index-card-image-placeholder{
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 13rem;
+    background-color: #7f846a;
+
+    border-top-right-radius: var(--border-radius-image);
+    border-top-left-radius: var(--border-radius-image);
+
+    font-weight: bolder;
+    font-size: 30px;
+    color: #555a42;
+}
+/*--------Index Image End----------*/
+
+/*---------Index Buttons---------*/
+
+.index-button-container{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1rem;
 }
 
-.font-larger {
-    font-size: xx-large;
+.index-button{
+    text-decoration: none;
+    font-size: 24px;
+    margin-right: 1rem;
+    color: #000000;
 }
 
-.footer-info {
-    width: 30%
+/*-------Index Buttons END-------*/
+
+/*----Index Dropdown----*/
+
+.index-filter-container{
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2.5rem auto 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border: var(--border-width) solid #d0cdc8;
+    border-radius: var(--border-radius-card);
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/*----Index Filter Group----*/
+
+.index-filter-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    min-width: 110px;
+}
+
+.index-filter-label{
+    font-size: 11px;
+    font-family: var(--font);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+/*----Index Dropdown Button----*/
+
+.index-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.index-dropdown-btn{
+    background-color: #fff;
+    color: #333;
+    padding: 0.6rem 0.85rem;
+    font-size: 15px;
+    font-family: var(--font);
+    border: var(--border-width) solid #c8c4be;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: border-color 0.15s;
+}
+
+.index-dropdown-btn:hover, .index-dropdown-btn:focus {
+    border-color: #888;
+    outline: none;
+}
+
+.index-dropdown-btn-text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.index-dropdown-chevron{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #777;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.index-dropdown-btn[aria-expanded="true"] .index-dropdown-chevron{
+    transform: rotate(180deg);
+}
+
+/*----Index Dropdown Content----*/
+
+.index-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100%;
+    border: var(--border-width) solid #c8c4be;
+    border-radius: 10px;
+    z-index: 100;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    margin-top: 0.3rem;
+}
+
+.index-dropdown-content input {
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url('https://www.w3schools.com/howto/searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    font-size: 14px;
+    font-family: var(--font);
+    padding: 12px 16px 11px 45px;
+    border: none;
+    border-bottom: 1px solid #e0ddd9;
+}
+
+.index-dropdown-content input:focus {
+    outline: none;
+    background-color: #fafafa;
+}
+
+.index-dropdown-content a {
+    color: #222;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: var(--font);
+    font-size: 15px;
+}
+
+.index-dropdown-content a:hover {
+    background-color: #f3f0ec;
+}
+
+/*----Index Date Input----*/
+
+.index-filter-date{
+    height: 2.55rem;
+    padding: 0 0.85rem;
+    font-size: 15px;
+    font-family: var(--font);
+    border: var(--border-width) solid #c8c4be;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    width: 100%;
+    transition: border-color 0.15s;
+}
+
+.index-filter-date:focus{
+    outline: none;
+    border-color: #888;
+}
+
+/*----Index Filter Action Buttons----*/
+
+.index-filter-actions{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.index-filter-btn-apply{
+    background-color: #2d3a4a;
+    color: #fff;
+    padding: 0 1.4rem;
+    height: 2.55rem;
+    font-size: 15px;
+    font-family: var(--font);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.index-filter-btn-apply:hover{
+    background-color: #3d4f63;
+}
+
+.index-filter-btn-clear{
+    background-color: #fff;
+    color: #333;
+    padding: 0 1.1rem;
+    height: 2.55rem;
+    font-size: 15px;
+    font-family: var(--font);
+    border: var(--border-width) solid #c8c4be;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.index-filter-btn-clear:hover{
+    background-color: #f5f2ef;
+}
+
+.show {display: block;}
+
+/*----Index Phone Screen----*/
+
+@media (max-width: 800px){
+    .index-filter-container{
+        width: 95%;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .index-filter-group{
+        width: 100%;
+        flex: none;
+    }
+
+    .index-filter-actions{
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .index-container{
+        width: 100%;
+        height: min-content;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 1.5rem;
+    }
+}
+
+/*----Index Computer Screen----*/
+@media (min-width: 800px){
+    .index-container{
+        width: 100%;
+        height: min-content;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 2.5rem;
+        justify-content: center;
+    }
+
+    .index-card{
+        width: 21.7625rem;
+        margin-bottom: 2rem;
+    }
+}
+
+
+
+/*----Index Price Slider (inside dropdown)----*/
+
+.index-dropdown-content--slider {
+    padding: 1.2rem 1.4rem 0.9rem;
+    min-width: 240px;
+}
+
+.index-price-slider-wrapper {
+    position: relative;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+}
+
+.index-price-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #e0ddd9;
+    border-radius: 2px;
+}
+
+.index-price-range {
+    position: absolute;
+    height: 100%;
+    background-color: #2d3a4a;
+    border-radius: 2px;
+}
+
+.index-price-thumb {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2d3a4a;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    cursor: grab;
+    z-index: 2;
+    transition: background-color 0.15s, box-shadow 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.index-price-thumb:hover {
+    background: #3d4f63;
+    box-shadow: 0 0 0 4px rgba(45, 58, 74, 0.15);
+}
+
+.index-price-thumb.dragging {
+    background: #3d4f63;
+    cursor: grabbing;
+    box-shadow: 0 0 0 6px rgba(45, 58, 74, 0.2);
+}
+
+.index-price-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-family: var(--font);
+    color: #555;
+    padding-top: 0.2rem;
+}
+
+/*----Mobile Filter Toggle Button----*/
+
+.index-filter-toggle-btn {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .index-filter-toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1.2rem auto 0 auto;
+        width: fit-content;
+        background-color: #2d3a4a;
+        color: #fff;
+        font-family: var(--font);
+        font-size: 15px;
+        padding: 0.6rem 1.4rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .index-filter-toggle-chevron {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid #fff;
+        transition: transform 0.2s;
+    }
+
+    .index-filter-toggle-chevron.open {
+        transform: rotate(180deg);
+    }
+
+    .index-filter-container {
+        display: none !important;
+    }
+
+    .index-filter-container.mobile-visible {
+        display: flex !important;
+    }
 }

@@ -833,4 +833,62 @@ nav li:first-child{
     .index-filter-container.mobile-visible {
         display: flex !important;
     }
+
+    footer {
+        margin-top: 4rem;
+    }
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+    background-color: var(--nav-bar-bg-color);
+    color: var(--nav-bar-text-color);
+
+    p {
+        padding-top: 0.5rem;
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            margin-top: 0.5rem;
+        }
+
+        a {
+            color: #ebfef8;
+
+
+            &:hover {
+                filter: brightness(0.8);
+            }
+        }
+    }
+}
+
+.footer-container {
+    display: flex;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.font-larger {
+    font-size: xx-large;
+}
+
+.footer-info {
+    width: 30%;
+}
+
+.footer-inner-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
 }

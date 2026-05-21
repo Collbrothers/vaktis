@@ -10,6 +10,23 @@ function hideSidebar(){
     sidebar.style.display = 'none'
 }
 
+
+
+window.addEventListener("load", () => {
+    if (localStorage.getItem('cookie-ack') !== "true") {
+        cookieBanner.style.display = 'flex'
+    }
+})
+
+document.getElementById("cookie-all-ack").addEventListener('click', () => {
+    cookieBanner.style.display = 'none'
+    localStorage.setItem('cookie-ack',"true")
+})
+
+document.getElementById("cookie-necessary-ack").addEventListener('click', () => {
+    cookieBanner.style.display = "none"
+})
+
 /*----Dropdown Helpers----*/
 
 function toggleDropdown(id) {

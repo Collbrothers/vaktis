@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="/">Hem</a></li>
                     <li><a href="/about">Om Oss</a></li>
-                    <li><a href="/contact">Kontakt</a></li>
+                    <li><a href="/signup">Skapa Konto</a></li>
                 </ul>
             </div>
             <div>

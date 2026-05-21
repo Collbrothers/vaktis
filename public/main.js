@@ -1,11 +1,11 @@
 const cookieBanner = document.getElementById("cookie-banner")
 
-function showSidebar(){
+function showSidebar() {
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'flex'
 }
 
-function hideSidebar(){
+function hideSidebar() {
     const sidebar = document.querySelector('.sidebar')
     sidebar.style.display = 'none'
 }
@@ -26,6 +26,33 @@ document.getElementById("cookie-all-ack").addEventListener('click', () => {
 document.getElementById("cookie-necessary-ack").addEventListener('click', () => {
     cookieBanner.style.display = "none"
 })
+
+if (document.getElementById("sign-up-form")) {
+    document.getElementById("sign-up-form").addEventListener('submit', (e) => {
+        const pass = document.getElementById("sign-up-psw");
+        const confirmPass = document.getElementById("sign-up-psw-confirm");
+        const username = document.getElementById("sign-up-name");
+        const formError = document.getElementById("form-error");
+
+        if (pass.value !== confirmPass.value) {
+            e.preventDefault();
+            formError.querySelector("p").textContent = "Lösenorden matchar inte"
+            formError.hidden = false
+        }
+
+        if (pass.value.length < 8) {
+            e.preventDefault();
+            formError.querySelector("p").textContent = "Lösenordet måste vara minst 8 tecken"
+            formError.hidden = false
+        }
+
+        if (username.length > 50) {
+            e.preventDefault();
+            formError.querySelector("p").textContent = "Användarnamnet får inte vara längre än 50 tecken"
+            formError.hidden = false
+        }
+    })
+}
 
 /*----Dropdown Helpers----*/
 

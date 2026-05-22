@@ -15,12 +15,14 @@
                 </button>
                 <div id="kommun-dorpdown" class="index-dropdown-content">
                     <input type="text" placeholder="Sök..." oninput="filterFunctionKommun()">
-                    <a href="#">Karlsborg</a>
-                    <a href="#">Hjo</a>
-                    <a href="#">Mariestad</a>
-                    <a href="#">Tibro</a>
-                    <a href="#">Göteborg</a>
-                    <a href="#">Skövde</a>
+                    <div class="index-dropdown-scroll">
+                        <a href="#">Karlsborg</a>
+                        <a href="#">Hjo</a>
+                        <a href="#">Mariestad</a>
+                        <a href="#">Tibro</a>
+                        <a href="#">Göteborg</a>
+                        <a href="#">Skövde</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,7 +116,7 @@
                     minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostrum voluptates magnam.</p>
             </div>
             <div class="index-button-container">
-                <a class="index-button" href="">Läs mer→</a>
+                <a class="index-button" href="/read-more">Läs mer→</a>
             </div>
         </div>
         <!--Card-->
@@ -126,7 +128,7 @@
                     minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostrum voluptates magnam.</p>
             </div>
             <div class="index-button-container">
-                <a class="index-button" href="">Läs mer→</a>
+                <a class="index-button" href="/read-more">Läs mer→</a>
             </div>
         </div>
         <!--Card-->
@@ -138,7 +140,7 @@
                     minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostrum voluptates magnam.</p>
             </div>
             <div class="index-button-container">
-                <a class="index-button" href="">Läs mer→</a>
+                <a class="index-button" href="/read-more">Läs mer→</a>
             </div>
         </div>
         <!--Card-->
@@ -150,7 +152,7 @@
                     minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostrum voluptates magnam.</p>
             </div>
             <div class="index-button-container">
-                <a class="index-button" href="">Läs mer→</a>
+                <a class="index-button" href="/read-more">Läs mer→</a>
             </div>
         </div>
         <!--Card-->
@@ -162,7 +164,7 @@
                     minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostrum voluptates magnam.</p>
             </div>
             <div class="index-button-container">
-                <a class="index-button" href="">Läs mer→</a>
+                <a class="index-button" href="/read-more">Läs mer→</a>
             </div>
         </div>
     </div>

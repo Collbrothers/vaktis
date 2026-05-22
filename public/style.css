@@ -612,6 +612,17 @@ nav li:first-child{
     background-color: #f3f0ec;
 }
 
+#kommun-dorpdown input{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.index-dropdown-scroll {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
 /*----Index Date Input----*/
 
 .index-filter-date{
@@ -717,6 +728,7 @@ nav li:first-child{
         flex-wrap: wrap;
         padding-top: 2.5rem;
         justify-content: center;
+        margin-bottom: 15rem;
     }
 
     .index-card{

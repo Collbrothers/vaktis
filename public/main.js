@@ -101,7 +101,7 @@ function filterFunctionKommun() { filterDropdown('kommun-dorpdown') }
 function filterFunctionTjanst() { filterDropdown('tjanst-dorpdown') }
 function filterFunctionDjurtyp() { filterDropdown('djurtyp-dorpdown') }
 
-/*----Option Selection — Update Button Text----*/
+/*----Option Selection - Update Button Text----*/
 
 document.addEventListener('click', function(event) {
     var link = event.target.closest('.index-dropdown-content a')
@@ -121,7 +121,7 @@ var pris = {
     min: 140,
     max: 270,
     rangeMin: 0,
-    rangeMax: 500,
+    rangeMax: 999,
     step: 10,
     dragging: null   // 'min' or 'max'
 }
@@ -158,13 +158,15 @@ function renderPriceSlider() {
     if (thumbMin) thumbMin.style.left = leftPct + '%'
     if (thumbMax) thumbMax.style.left = rightPct + '%'
 
+    var maxLabel = pris.max >= pris.rangeMax ? pris.max + '+ kr' : pris.max + 'kr'
+
     var btnText = document.getElementById('pris-btn-text')
-    if (btnText) btnText.textContent = pris.min + 'kr-' + pris.max + 'kr'
+    if (btnText) btnText.textContent = pris.min + 'kr-' + maxLabel
 
     var minDisplay = document.getElementById('pris-min-display')
     var maxDisplay = document.getElementById('pris-max-display')
     if (minDisplay) minDisplay.textContent = pris.min + ' kr'
-    if (maxDisplay) maxDisplay.textContent = pris.max + ' kr'
+    if (maxDisplay) maxDisplay.textContent = maxLabel
 }
 
 function initPriceSlider() {

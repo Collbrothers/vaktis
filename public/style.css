@@ -21,7 +21,7 @@
     /*-------*/
     /*Sign Up Site*/
     --sign-up-site-btn-text-color: #000000;
-    --create-accaunt-btn-color: #14cd14;
+    --create-accaunt-btn-color: #4d523a;
     --create-accaunt-btn-hover-color: #3baf1e;
     /*------------*/
 }
@@ -910,4 +910,117 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 4rem;
+}
+
+/*::::READ MORE::::*/
+
+.read-more-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: min-content;
+}
+
+.read-more-card{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: var(--card-bg-color);
+    height: min-content;
+    margin: 0 1rem 0 1rem;
+    border-radius: var(--border-radius-card);
+    color: var(--nav-bar-text-color);
+    font-size: 18px;
+    width: fit-content;
+}
+
+.read-more-form-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.read-more-form-container textarea{
+    width: 100%;
+    height: min-content;
+    font-size: large;
+    border-bottom-right-radius: var(--border-radius-image);
+    border-bottom-left-radius: var(--border-radius-image);
+    margin: 1rem 0 1rem 0;
+    padding: 0.4rem;
+    resize: none;
+}
+
+#read-more-btn{
+    color: var(--nav-bar-text-color);
+    background-color: #4d523a;
+    border-radius: var(--border-radius-input-and-btn);
+    border: 10px solid transparent;
+    font-size: large;
+}
+
+#read-more-btn:hover{
+    color: #4d523a;
+    background-color: #889168;
+}
+
+.read-more-card-image{
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+}
+
+@media (max-width: 800px) {
+    .read-more-container{
+        width: 100%;
+        height: min-content;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .read-more-card{
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 800px){
+    .read-more-container{
+        width: 100%;
+        height: min-content;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 1.2rem;
+        justify-content: center;
+    }
+
+    .read-more-card{
+        width: 70%;
+        margin-bottom: 2rem;
+        flex-direction: row;
+    }
+
+    .read-more-form-container{
+        margin-top: 2rem;
+    }
+
+    .read-more-card-content-1{
+        flex-basis: 35%;
+    }
+
+    .read-more-card-content-2{
+        flex-basis: 65%;
+    }
+    
+    .read-more-card-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--border-radius-image);
+    }
+
+    .read-more-form-container textarea{
+    border-radius: var(--border-radius-image);
+}
 }

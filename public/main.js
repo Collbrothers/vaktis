@@ -259,6 +259,76 @@ function clearFilters() {
     if (dateInput) dateInput.value = ''
 }
 
+/*----Posting Dropdown Helpers----*/
+
+function initPostingDropdowns() {
+    document.querySelectorAll('.posting-dropdown').forEach(function(wrapper) {
+        var select = wrapper.querySelector('select')
+        if (!select) return
+
+        select.style.display = 'none'
+
+        var firstLabel = select.options.length > 0 ? select.options[0].text : ''
+
+        var btn = document.createElement('button')
+        btn.type = 'button'
+        btn.className = 'index-dropdown-btn'
+        btn.innerHTML = '<span class="index-dropdown-btn-text">' + firstLabel + '</span><span class="index-dropdown-chevron"></span>'
+
+        var content = document.createElement('div')
+        content.className = 'index-dropdown-content'
+        content.id = 'posting-dropdown-' + select.id
+
+        var searchInput = document.createElement('input')
+        searchInput.type = 'text'
+        searchInput.placeholder = 'Sök...'
+        searchInput.addEventListener('input', function() {
+            var filter = searchInput.value.toUpperCase()
+            content.querySelectorAll('a').forEach(function(a) {
+                a.style.display = a.textContent.toUpperCase().indexOf(filter) > -1 ? '' : 'none'
+            })
+        })
+        content.appendChild(searchInput)
+
+        Array.from(select.options).forEach(function(opt) {
+            var a = document.createElement('a')
+            a.href = '#'
+            a.textContent = opt.text
+            a.dataset.value = opt.value
+            content.appendChild(a)
+        })
+
+        btn.addEventListener('click', function() {
+            var allContents = document.querySelectorAll('.posting-dropdown .index-dropdown-content')
+            allContents.forEach(function(c) {
+                if (c !== content) {
+                    c.classList.remove('show')
+                    var b = c.previousElementSibling
+                    if (b) b.removeAttribute('aria-expanded')
+                }
+            })
+            var isOpen = content.classList.toggle('show')
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+            if (isOpen) searchInput.focus()
+        })
+
+        content.addEventListener('click', function(e) {
+            var link = e.target.closest('a')
+            if (!link) return
+            e.preventDefault()
+            select.value = link.dataset.value
+            btn.querySelector('.index-dropdown-btn-text').textContent = link.textContent.trim()
+            content.classList.remove('show')
+            btn.removeAttribute('aria-expanded')
+        })
+
+        wrapper.appendChild(btn)
+        wrapper.appendChild(content)
+    })
+}
+
+document.addEventListener('DOMContentLoaded', initPostingDropdowns)
+
 /*----Close Dropdowns On Outside Click----*/
 
 window.onclick = function(event) {

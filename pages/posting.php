@@ -37,22 +37,6 @@
                         </div>
                         <!--END-->
                     </div>
-                    <!--Date form/to-->
-                    <div class="posting-date-container">
-                        <div class="posting-optin-date-container">
-                            <label for="datum-input">Datum från:</label>
-                            <div class="posting-align">
-                                <input type="date" class="index-filter-date" id="datum-input">
-                            </div>
-                        </div>
-                        <div class="posting-optin-date-container">
-                            <label for="datum-input">Datum Till:</label>
-                            <div class="posting-align">
-                                <input type="date" class="index-filter-date" id="datum-input">
-                            </div>
-                        </div>
-                    </div>
-                    <!--END-->
                     <div class="posting-two-row">
                         <!--Payment-->
                         <div class="posting-optin-container">
@@ -103,6 +87,16 @@
                         </div>
                         <!--END-->
                     </div>
+                    <!--Date form/to-->
+                    <div class="posting-date-container">
+                        <div class="posting-optin-date-container">
+                            <label for="datum-input">Datum:</label>
+                            <div class="posting-align">
+                                <input type="date" class="index-filter-date" id="datum-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!--END-->
                 </div>
                 <div class="posting-form-container">
                     <h2>Övrig info</h2>

@@ -1,35 +1,56 @@
+<?php require_once '../includes/session.php'; ?>
+<?php require_once '../includes/db.php'; ?>
+<?php
+global $pdo;
+
+if (empty($_GET['id'])) {
+    header('Location: /');
+    exit;
+}
+
+$id = $_GET['id'];
+
+$stmt = $pdo->prepare("SELECT job_postings.*, pet_images.filename FROM job_postings LEFT JOIN pet_images ON pet_images.id = job_postings.id WHERE job_postings.id = ?");
+$stmt->execute([$id]);
+$job = $stmt->fetch();
+
+?>
 <?php require_once '../includes/header.php'; ?>
 
 
-<main>
-    <div class="read-more-container">
-        <div class="read-more-card">
-            <div class="read-more-card-content-1">
-                <img class="read-more-card-image"
-                    src="https://www.borrowmydoggy.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4ij0poqn%2Fproduction%2Fe24bfbd855cda99e303975f2bd2a1bf43079b320-800x600.jpg&w=1080&q=80"
-                    alt="Bild över husdjuret">
-                <div class="index-card-image-placeholder">Ingen Bild</div>
-            </div>
-            <div class="read-more-card-content-2">
-                <div class="index-text">
-                    <h2>Lasse</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ipsa ad optio, natus ex debitis sed id
-                        minus? Velit saepe quasi aperiam quo accusamus quis, laborum quidem nostru</p>
-                </div>
-                <form action="POST">
-                    <div class="read-more-form-container">
-                        <h2>Meddelande</h2>
-                        <textarea id="read-more-text" rows="8"></textarea>
-                        <input id="read-more-btn" type="button" value="Ansök">
+    <main>
+        <div class="read-more-container">
+            <div class="read-more-card">
+                <div class="read-more-card-content-1">
+                    <?php if ($job["filename"]): ?>
+                    <img class="read-more-card-image"
+                         src="/public/uploads/<?= htmlspecialchars($job["filename"]) ?>"
+                         alt="Bild över husdjuret">
+                    <?php else: ?>
+                    <div class="index-card-image-placeholder">
+                            Ingen Bild
                     </div>
-                </form>
-                <div>
+                    <?php endif; ?>
+                </div>
+                <div class="read-more-card-content-2">
+                    <div class="index-text">
+                        <h2><?= $job["title"] ?></h2>
+                        <p><?= $job["description"] ?></p>
+                    </div>
+                    <form method="POST">
+                        <div class="read-more-form-container">
+                            <h2>Meddelande</h2>
+                            <textarea id="read-more-text" rows="8"></textarea>
+                            <input id="read-more-btn" type="button" value="Ansök">
+                        </div>
+                    </form>
+                    <div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
 
 <?php require_once '../includes/footer.php'; ?>

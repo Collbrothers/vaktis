@@ -113,6 +113,18 @@ document.addEventListener('click', function(event) {
     if (btnText) btnText.textContent = link.textContent.trim()
     dropdown.classList.remove('show')
     if (btn) btn.removeAttribute('aria-expanded')
+
+    // Set the hidden input
+    var inputMap = {
+        'kommun-dorpdown': 'filter-kommun',
+        'tjanst-dorpdown': 'filter-tjanst',
+        'djurtyp-dorpdown': 'filter-djurtyp',
+        'storlek-dorpdown': 'filter-storlek',
+    }
+    var hiddenId = inputMap[dropdown.id]
+    if (hiddenId) {
+        document.getElementById(hiddenId).value = link.dataset.value
+    }
 })
 
 /*----Price Slider (custom drag-based)----*/
@@ -167,8 +179,12 @@ function renderPriceSlider() {
     var maxDisplay = document.getElementById('pris-max-display')
     if (minDisplay) minDisplay.textContent = pris.min + ' kr'
     if (maxDisplay) maxDisplay.textContent = maxLabel
-}
 
+    var minInput = document.getElementById('filter-pris-min')
+    var maxInput = document.getElementById('filter-pris-max')
+    if (minInput) minInput.value = pris.min
+    if (maxInput) maxInput.value = pris.max
+}
 function initPriceSlider() {
     renderPriceSlider()
 
@@ -225,39 +241,6 @@ function toggleMobileFilters() {
     if (chevron) chevron.classList.toggle('open', isOpen)
 }
 
-/*----Clear All Filters----*/
-
-function clearFilters() {
-    document.querySelectorAll('.index-dropdown-content').forEach(function(d) {
-        d.classList.remove('show')
-        var searchInput = d.querySelector('input[type="text"]')
-        if (searchInput) {
-            searchInput.value = ''
-            filterDropdown(d.id)
-        }
-        var btn = d.previousElementSibling
-        if (btn) btn.removeAttribute('aria-expanded')
-    })
-    document.querySelectorAll('.index-dropdown-btn-text').forEach(function(span) {
-        var label = span.closest('.index-filter-group').querySelector('.index-filter-label')
-        if (!label) return
-        var key = label.textContent.trim().toUpperCase()
-        var defaults = {
-            'KOMMUN':  'Kommuner',
-            'TJÄNST':  'Tjänster',
-            'DJURTYP': 'Djurtyper',
-            'STORLEK': 'Storlekar'
-        }
-        if (defaults[key]) span.textContent = defaults[key]
-    })
-
-    pris.min = 140
-    pris.max = 270
-    renderPriceSlider()
-
-    var dateInput = document.getElementById('datum-input')
-    if (dateInput) dateInput.value = ''
-}
 
 /*----Posting Dropdown Helpers----*/
 
@@ -344,4 +327,8 @@ window.onclick = function(event) {
             if (btn) btn.removeAttribute('aria-expanded')
         })
     }
+}
+
+function clearFilters() {
+    window.location.href = window.location.pathname;
 }

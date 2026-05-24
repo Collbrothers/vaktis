@@ -21,6 +21,7 @@
             <li><a href="/report">Rapportera</a></li>
             <li><a href="/about">Om Oss</a></li>
             <?php if (isset($_SESSION["user"]["email"])): ?>
+                <li><a href="/posting" class="nav-add-posting-on-phone">Skapa Annons</a></li>
                 <li><a href="/profile">Min Profil</a></li>
             <?php else: ?>
                 <li><a href="/signup">Skapa Konto</a></li>
@@ -36,6 +37,7 @@
             <li class="hideOnMobile nav-button"><a href="/about">Om Oss</a></li>
             <?php if (isset($_SESSION["user"]["email"])): ?>
                 <li class="hideOnMobile nav-button-important"><a href="/profile">Min Profil</a></li>
+                <li class="hideOnMobile nav-button-important"><a href="/posting">Skapa Annons</a></li>
             <?php else: ?>
                 <li class="hideOnMobile nav-button-important"><a href="/signup">Skapa Konto</a></li>
                 <li class="hideOnMobile nav-button-important"><a href="/login">Logga In</a></li>

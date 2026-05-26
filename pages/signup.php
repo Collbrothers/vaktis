@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->rowCount() > 0) {
         $_SESSION["user"] = [
+                "id" => $pdo->lastInsertId(),
                 "name" => $username,
                 "email" => $email,
                 "is_admin" => false

@@ -332,39 +332,3 @@ window.onclick = function(event) {
 function clearFilters() {
     window.location.href = window.location.pathname;
 }
-
-/*----Profile Mail Overlay----*/
-
-function initMailOverlay() {
-    const mailSection = document.querySelector('.profile-mail')
-    const overlay = document.getElementById('mail-cover-box')
-
-    if (!mailSection || !overlay) return
-
-    let locked = false
-
-    function showOverlay() {
-        overlay.style.display = 'block'
-    }
-
-    function hideOverlay() {
-        overlay.style.display = 'none'
-    }
-
-    showOverlay()
-
-    mailSection.addEventListener('mouseenter', () => {
-        if (!locked) hideOverlay()
-    })
-
-    mailSection.addEventListener('mouseleave', () => {
-        if (!locked) showOverlay()
-    })
-
-    mailSection.addEventListener('click', () => {
-        locked = !locked
-        locked ? hideOverlay() : showOverlay()
-    })
-}
-
-document.addEventListener('DOMContentLoaded', initMailOverlay)

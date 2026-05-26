@@ -1,4 +1,23 @@
 <?php require_once '../includes/session.php'; ?>
+<?php require_once '../includes/db.php'; ?>
+<?php
+global $pdo;
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$_SESSION["user"]["id"]]);
+$user = $stmt->fetch();
+
+$stmt = $pdo->prepare("
+    SELECT jp.*, COUNT(a.id) AS application_count
+    FROM job_postings jp
+    LEFT JOIN applications a ON a.posting_id = jp.id
+    WHERE jp.owner_id = ?
+    GROUP BY jp.id
+");
+$stmt->execute([$user["id"]]);
+$job_postings = $stmt->fetchAll();
+
+?>
 <?php require_once '../includes/header.php'; ?>
 <main>
     <div class="profile-container">
@@ -8,135 +27,44 @@
             </div>
             <div class="profile-card-text">
                 <div class="justify-content-center">
-                    <h2>Användarnamn</h2>
+                    <h2><?= htmlspecialchars($user["name"]) ?></h2>
                 </div>
                 <div class="profile-description">
                     <label>Beskrivning:</label>
-                    <p class="green-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error repellat id cupiditate dolores sunt, dicta fugiat, illo officiis laborum qui suscipit aliquam, officia doloremque enim aperiam consectetur ea nulla delectus?</p>
+                    <p class="green-box"><?= $user["description"] ? htmlspecialchars($user["description"]) : "Ingen beskrivning" ?></p>
                 </div>
                 <div class="profile-mail">
                     <label for="">Epost:</label>
                     <div class="wrapper">
-                        <p class="green-box">example@email.com</p>
+                        <p class="green-box"><?= htmlspecialchars($user["email"]) ?></p>
                         <div id="mail-cover-box" class="profile-overlay"></div>
                     </div>
                 </div>
                 <div class="profile-account-created">
-                    <p>Skapades:</p>
-                    <p class="green-box">2026-01-01</p>
+                    <p>Konto Skapades:</p>
+                    <p class="green-box"><?= date("Y-m-d", strtotime($user["created_at"])) ?></p>
                 </div>
             </div>
             <div class="profile-post-container">
                 <h3>Mina Annonser:</h3>
                 <div class="profile-posts-scrollbar">
-                    <!--my posting card-->
+                    <?php foreach ($job_postings as $job_posting) : ?>
                     <div class="wrapper">
                         <div class="profile-active-posts-container">
                             <div class="profile-active-posts">
-                                <!--Tjänst-->
                                 <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
+                                    <label for="">Annons:</label>
+                                    <p><?= htmlspecialchars($job_posting["title"]) ?></p>
                                 </div>
-                                <!--Om den har fått ansökan-->
                                 <div class="profile-active-posts-small-container">
                                     <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
+                                    <p class="profile-important"><?= htmlspecialchars($job_posting["application_count"]) ?></p>
                                 </div>
                             </div>
                         </div>
-                        <a class="profile-overlay-2" href=""></a> <!--Länk till annonsen-->
+                        <a class="profile-overlay-2" href="/read-more?id=<?= $job_posting["id"] ?>"></a>
                     </div>
-                    <!--my posting card-->
-                    <div class="wrapper">
-                        <div class="profile-active-posts-container">
-                            <div class="profile-active-posts">
-                                <!--Tjänst-->
-                                <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
-                                </div>
-                                <!--Om den har fått ansökan-->
-                                <div class="profile-active-posts-small-container">
-                                    <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="profile-overlay-2" href="#yä"></a> <!--Länk till annonsen-->
-                    </div>
-                    <!--my posting card-->
-                    <div class="wrapper">
-                        <div class="profile-active-posts-container">
-                            <div class="profile-active-posts">
-                                <!--Tjänst-->
-                                <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
-                                </div>
-                                <!--Om den har fått ansökan-->
-                                <div class="profile-active-posts-small-container">
-                                    <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="profile-overlay-2" href="#he"></a> <!--Länk till annonsen-->
-                    </div>
-                    <!--my posting card-->
-                    <div class="wrapper">
-                        <div class="profile-active-posts-container">
-                            <div class="profile-active-posts">
-                                <!--Tjänst-->
-                                <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
-                                </div>
-                                <!--Om den har fått ansökan-->
-                                <div class="profile-active-posts-small-container">
-                                    <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="profile-overlay-2" href="#he"></a> <!--Länk till annonsen-->
-                    </div>
-                    <!--my posting card-->
-                    <div class="wrapper">
-                        <div class="profile-active-posts-container">
-                            <div class="profile-active-posts">
-                                <!--Tjänst-->
-                                <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
-                                </div>
-                                <!--Om den har fått ansökan-->
-                                <div class="profile-active-posts-small-container">
-                                    <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="profile-overlay-2" href="#he"></a> <!--Länk till annonsen-->
-                    </div>
-                    <!--my posting card-->
-                    <div class="wrapper">
-                        <div class="profile-active-posts-container">
-                            <div class="profile-active-posts">
-                                <!--Tjänst-->
-                                <div class="profile-active-posts-small-container">
-                                    <label for="">Tjänst:</label>
-                                    <p>Hundpromenad</p>
-                                </div>
-                                <!--Om den har fått ansökan-->
-                                <div class="profile-active-posts-small-container">
-                                    <label class="profile-hide-on-mobile" for="">Ansökninger:</label>
-                                    <p class="profile-important">(100)</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="profile-overlay-2" href="#he"></a> <!--Länk till annonsen-->
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

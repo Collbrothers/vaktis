@@ -18,7 +18,6 @@
                     </svg>
                 </a></li>
             <li><a href="/index">Annonser</a></li>
-            <li><a href="/report">Rapportera</a></li>
             <li><a href="/about">Om Oss</a></li>
             <?php if (isset($_SESSION["user"]["email"])): ?>
                 <li><a href="/posting" class="nav-add-posting-on-phone">Skapa Annons</a></li>
@@ -33,7 +32,6 @@
                                                              alt="A logo that with a dog paw followed by the text vaktis"></a>
             </li>
             <li class="hideOnMobile nav-button"><a href="/index">Annonser</a></li>
-            <li class="hideOnMobile nav-button"><a href="/report">Rapportera</a></li>
             <li class="hideOnMobile nav-button"><a href="/about">Om Oss</a></li>
             <?php if (isset($_SESSION["user"]["email"])): ?>
                 <li class="hideOnMobile nav-button-important"><a href="/profile">Min Profil</a></li>

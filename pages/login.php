@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $stmt = $pdo->prepare("SELECT name, password, is_admin FROM users WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT id, name, password, is_admin FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: /login');
         exit;
     }
-
     $_SESSION["user"] = [
+            "id" => $user["id"],
             "name" => $user["name"],
             "email" => $email,
             "is_admin" => $user["is_admin"] ?? false

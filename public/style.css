@@ -37,6 +37,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    background-image: linear-gradient(rgba(0,0,0,0.3)) ,url("bg-image-3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-attachment: fixed;
 }
 
 main {
@@ -427,7 +434,6 @@ nav li:first-child{
     padding: 1rem;
     background-color: var(--card-bg-color);
     height: min-content;
-    margin: 0 1rem 0 1rem;
     border-radius: var(--border-radius-card);
     color: var(--nav-bar-text-color);
     font-size: 18px;
@@ -438,6 +444,7 @@ nav li:first-child{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    height: 8rem;
 }
 
 .index-text p{
@@ -474,8 +481,10 @@ nav li:first-child{
 .index-button-container{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: end;
     width: 100%;
-    height: fit-content;
+    height: 5rem;
+    align-items: flex-end;
     margin-bottom: 1rem;
 }
 
@@ -499,6 +508,7 @@ nav li:first-child{
     width: 90%;
     max-width: 1200px;
     background-color: #fff;
+    opacity: 85%;
     border: var(--border-width) solid #d0cdc8;
     border-radius: var(--border-radius-card);
     padding: 1.2rem 1.5rem;
@@ -713,7 +723,11 @@ nav li:first-child{
         height: min-content;
         flex-direction: column;
         gap: 2rem;
-        padding-top: 1.5rem;
+        padding: 1.5rem 0.5rem 0rem 0.5rem;
+    }
+
+    .index-card{
+        width: 100%;
     }
 }
 
@@ -726,11 +740,14 @@ nav li:first-child{
         flex-wrap: wrap;
         padding-top: 2.5rem;
         justify-content: center;
+        gap: 1rem;
     }
 
     .index-card{
         width: 21.7625rem;
+        height: 30rem;
         margin-bottom: 2rem;
+        
     }
 }
 

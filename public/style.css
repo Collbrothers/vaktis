@@ -1318,6 +1318,30 @@ footer {
     gap: 0.5rem;
 }
 
+.profile-description textarea{
+    width: 100%;
+    height: min-content;
+    font-size: large;
+    border-radius: var(--border-radius-input-and-btn);
+    margin: 1rem 0 1rem 0;
+    padding: 1rem;
+    resize: none;
+}
+
+.edit-profile-submit-btn{
+    color: var(--nav-bar-text-color);
+    background-color: #4d523a;
+    border-radius: var(--border-radius-input-and-btn);
+    border: 10px solid transparent;
+    font-size: large;
+    width: 5rem;
+}
+
+.edit-profile-submit-btn:hover{
+    color: #4d523a;
+    background-color: #889168;
+}
+
 .green-box{
     background-color: #5b6044;
     padding: 1rem;

@@ -45,6 +45,7 @@ $job_postings = $stmt->fetchAll();
                     <p class="green-box"><?= date("Y-m-d", strtotime($user["created_at"])) ?></p>
                 </div>
             </div>
+            <a href="/edit-profile" class="edit-profile-anchor">Redigera Profil</a>
             <div class="profile-post-container">
                 <h3>Mina Annonser:</h3>
                 <div class="profile-posts-scrollbar">

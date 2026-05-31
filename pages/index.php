@@ -173,7 +173,7 @@ $selected = [
                 </div>
                 <div class="index-text">
                     <h2><?= htmlspecialchars($job_posting["title"]) ?></h2>
-                    <p><?= htmlspecialchars($job_posting["description"]) ?></p>
+                    <p class="index-description"><?= htmlspecialchars($job_posting["description"]) ?></p>
                 </div>
                 <div class="index-button-container">
                     <a class="index-button" href="/read-more?id=<?= $job_posting["id"] ?>">Läs mer→</a>

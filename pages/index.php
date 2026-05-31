@@ -22,13 +22,34 @@ $sizes = $stmt->fetchAll();
 $conditions = [];
 $params = [];
 
-if (!empty($_GET['kommun']))  { $conditions[] = 'municipality_id = ?'; $params[] = (int)$_GET['kommun']; }
-if (!empty($_GET['tjanst']))  { $conditions[] = 'service_id = ?';      $params[] = (int)$_GET['tjanst']; }
-if (!empty($_GET['djurtyp'])) { $conditions[] = 'animal_type_id = ?';  $params[] = (int)$_GET['djurtyp']; }
-if (!empty($_GET['storlek'])) { $conditions[] = 'size_id = ?';         $params[] = (int)$_GET['storlek']; }
-if (!empty($_GET['pris_min'])){ $conditions[] = 'pay >= ?'; $params[] = (int)$_GET['pris_min']; }
-if (!empty($_GET['pris_max'])){ $conditions[] = 'pay <= ?'; $params[] = (int)$_GET['pris_max']; }
-if (!empty($_GET['datum']))   { $conditions[] = 'date_needed = ?'; $params[] = $_GET['datum']; }
+if (!empty($_GET['kommun'])) {
+    $conditions[] = 'municipality_id = ?';
+    $params[] = (int)$_GET['kommun'];
+}
+if (!empty($_GET['tjanst'])) {
+    $conditions[] = 'service_id = ?';
+    $params[] = (int)$_GET['tjanst'];
+}
+if (!empty($_GET['djurtyp'])) {
+    $conditions[] = 'animal_type_id = ?';
+    $params[] = (int)$_GET['djurtyp'];
+}
+if (!empty($_GET['storlek'])) {
+    $conditions[] = 'size_id = ?';
+    $params[] = (int)$_GET['storlek'];
+}
+if (!empty($_GET['pris_min'])) {
+    $conditions[] = 'pay >= ?';
+    $params[] = (int)$_GET['pris_min'];
+}
+if (!empty($_GET['pris_max'])) {
+    $conditions[] = 'pay <= ?';
+    $params[] = (int)$_GET['pris_max'];
+}
+if (!empty($_GET['datum'])) {
+    $conditions[] = 'date_needed = ?';
+    $params[] = $_GET['datum'];
+}
 
 $sql = 'SELECT job_postings.*, pet_images.filename FROM job_postings LEFT JOIN pet_images ON pet_images.posting_id = job_postings.id';
 if ($conditions) {
@@ -40,13 +61,13 @@ $stmt->execute($params);
 $job_postings = $stmt->fetchAll();
 
 $selected = [
-        'kommun'  => $_GET['kommun']  ?? null,
-        'tjanst'  => $_GET['tjanst']  ?? null,
+        'kommun' => $_GET['kommun'] ?? null,
+        'tjanst' => $_GET['tjanst'] ?? null,
         'djurtyp' => $_GET['djurtyp'] ?? null,
         'storlek' => $_GET['storlek'] ?? null,
-        'pris_min'=> $_GET['pris_min']?? null,
-        'pris_max'=> $_GET['pris_max']?? null,
-        'datum'   => $_GET['datum']   ?? null,
+        'pris_min' => $_GET['pris_min'] ?? null,
+        'pris_max' => $_GET['pris_max'] ?? null,
+        'datum' => $_GET['datum'] ?? null,
 ];
 
 ?>
@@ -57,12 +78,18 @@ $selected = [
             <span class="index-filter-toggle-chevron" id="filter-toggle-chevron"></span>
         </button>
         <form method="GET" action="">
-            <input type="hidden" name="kommun"   id="filter-kommun"   value="<?= htmlspecialchars($selected['kommun']  ?? '') ?>">
-            <input type="hidden" name="tjanst"   id="filter-tjanst"   value="<?= htmlspecialchars($selected['tjanst']  ?? '') ?>">
-            <input type="hidden" name="djurtyp"  id="filter-djurtyp"  value="<?= htmlspecialchars($selected['djurtyp'] ?? '') ?>">
-            <input type="hidden" name="storlek"  id="filter-storlek"  value="<?= htmlspecialchars($selected['storlek'] ?? '') ?>">
-            <input type="hidden" name="pris_min" id="filter-pris-min" value="<?= htmlspecialchars($selected['pris_min']?? '') ?>">
-            <input type="hidden" name="pris_max" id="filter-pris-max" value="<?= htmlspecialchars($selected['pris_max']?? '') ?>">
+            <input type="hidden" name="kommun" id="filter-kommun"
+                   value="<?= htmlspecialchars($selected['kommun'] ?? '') ?>">
+            <input type="hidden" name="tjanst" id="filter-tjanst"
+                   value="<?= htmlspecialchars($selected['tjanst'] ?? '') ?>">
+            <input type="hidden" name="djurtyp" id="filter-djurtyp"
+                   value="<?= htmlspecialchars($selected['djurtyp'] ?? '') ?>">
+            <input type="hidden" name="storlek" id="filter-storlek"
+                   value="<?= htmlspecialchars($selected['storlek'] ?? '') ?>">
+            <input type="hidden" name="pris_min" id="filter-pris-min"
+                   value="<?= htmlspecialchars($selected['pris_min'] ?? '') ?>">
+            <input type="hidden" name="pris_max" id="filter-pris-max"
+                   value="<?= htmlspecialchars($selected['pris_max'] ?? '') ?>">
 
             <div class="index-filter-container" id="index-filter-container">
                 <div class="index-filter-group">
@@ -76,7 +103,8 @@ $selected = [
                             <input type="text" placeholder="Sök..." oninput="filterFunctionKommun()">
                             <div class="index-dropdown-scroll">
                                 <?php foreach ($municipalities as $municipality): ?>
-                                    <a href="#" data-value="<?= $municipality["id"] ?>"><?= htmlspecialchars($municipality['name']) ?></a>
+                                    <a href="#"
+                                       data-value="<?= $municipality["id"] ?>"><?= htmlspecialchars($municipality['name']) ?></a>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -92,7 +120,8 @@ $selected = [
                         <div id="tjanst-dorpdown" class="index-dropdown-content">
                             <input type="text" placeholder="Sök..." oninput="filterFunctionTjanst()">
                             <?php foreach ($services as $service): ?>
-                                <a href="#" data-value="<?= $service["id"] ?>"><?= htmlspecialchars($service['name']) ?></a>
+                                <a href="#"
+                                   data-value="<?= $service["id"] ?>"><?= htmlspecialchars($service['name']) ?></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -107,7 +136,8 @@ $selected = [
                         <div id="djurtyp-dorpdown" class="index-dropdown-content">
                             <input type="text" placeholder="Sök..." oninput="filterFunctionDjurtyp()">
                             <?php foreach ($animal_types as $animal_type): ?>
-                                <a href="#" data-value="<?= $animal_type["id"] ?>"><?= htmlspecialchars($animal_type['name']) ?></a>
+                                <a href="#"
+                                   data-value="<?= $animal_type["id"] ?>"><?= htmlspecialchars($animal_type['name']) ?></a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -121,7 +151,9 @@ $selected = [
                         </button>
                         <div id="storlek-dorpdown" class="index-dropdown-content">
                             <?php foreach ($sizes as $size): ?>
-                                <a href="#" data-value="<?= $size["id"] ?>"><?= htmlspecialchars($size['name']) ?> <br> (<?= htmlspecialchars($size["weight_min_kg"]) ?>-<?= $size["weight_max_kg"] ?> kg)</a>
+                                <a href="#" data-value="<?= $size["id"] ?>"><?= htmlspecialchars($size['name']) ?> <br>
+                                    (<?= htmlspecialchars($size["weight_min_kg"]) ?>-<?= $size["weight_max_kg"] ?>
+                                    kg)</a>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -163,22 +195,23 @@ $selected = [
         </form>
         <div class="index-container">
             <?php foreach ($job_postings as $job_posting): ?>
-            <div class="index-card">
-                <div class="index-card-image-placeholder">
+                <div class="index-card">
                     <?php if ($job_posting['filename']): ?>
-                        <img src="/public/uploads/<?= htmlspecialchars($job_posting['filename']) ?>" alt="Bild på husdjur">
+                            <img src="/public/uploads/<?= htmlspecialchars($job_posting['filename']) ?>"
+                                 alt="Bild på husdjur" class="index-card-image">
                     <?php else: ?>
-                        Ingen Bild
+                        <div class="index-card-image-placeholder">
+                            Ingen Bild
+                        </div>
                     <?php endif; ?>
+                    <div class="index-text">
+                        <h2><?= htmlspecialchars($job_posting["title"]) ?></h2>
+                        <p class="index-description"><?= htmlspecialchars($job_posting["description"]) ?></p>
+                    </div>
+                    <div class="index-button-container">
+                        <a class="index-button" href="/read-more?id=<?= $job_posting["id"] ?>">Läs mer→</a>
+                    </div>
                 </div>
-                <div class="index-text">
-                    <h2><?= htmlspecialchars($job_posting["title"]) ?></h2>
-                    <p class="index-description"><?= htmlspecialchars($job_posting["description"]) ?></p>
-                </div>
-                <div class="index-button-container">
-                    <a class="index-button" href="/read-more?id=<?= $job_posting["id"] ?>">Läs mer→</a>
-                </div>
-            </div>
             <?php endforeach; ?>
 
             <?php if (empty($job_postings)): ?>

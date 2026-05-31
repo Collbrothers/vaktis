@@ -1,7 +1,33 @@
 <?php require_once '../includes/session.php'; ?>
 <?php require_once '../includes/db.php'; ?>
+<?php require_once '../includes/csrf.php'; ?>
 <?php
 global $pdo;
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (empty($_POST["csrf_token"]) || !verifyCsrfToken($_POST["csrf_token"])) {
+        die;
+    }
+
+    if (!isset($_POST["description"])) {
+        $_SESSION['error'] = "Vänligen fyll i alla fält.";
+        header('Location: /edit-profile');
+        exit;
+    }
+
+    if (strlen($_POST["description"]) > 100) {
+        $_SESSION['error'] = "Beskrivningen kan inte vara längre än 100 tecken.";
+        header('Location: /edit-profile');
+        exit;
+    }
+
+    $stmt = $pdo->prepare("UPDATE users SET description = ? WHERE id = ?");
+    $stmt->execute([$_POST["description"], $_SESSION["user"]["id"]]);
+    header("Location: /profile");
+    exit;
+}
+
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$_SESSION["user"]["id"]]);
@@ -17,6 +43,10 @@ $stmt = $pdo->prepare("
 $stmt->execute([$user["id"]]);
 $job_postings = $stmt->fetchAll();
 
+if (empty($_SESSION["csrf_token"])) {
+    generateRandomHexString();
+}
+
 ?>
 <?php require_once '../includes/header.php'; ?>
 <main>
@@ -31,8 +61,9 @@ $job_postings = $stmt->fetchAll();
                 </div>
                 <div class="profile-description">
                     <label>Beskrivning:</label>
-                    <form action="">
-                        <textarea name="" id="" rows="8"></textarea>
+                    <form method="post" action="/edit-profile">
+                        <textarea name="description" id="" rows="8"></textarea>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                         <input class="edit-profile-submit-btn" type="submit" value="Spara">
                     </form>
                 </div>

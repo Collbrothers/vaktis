@@ -785,6 +785,13 @@ nav li:first-child{
     -webkit-user-select: none;
 }
 
+.index-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .index-price-thumb:hover {
     background: #3d4f63;
     box-shadow: 0 0 0 4px rgba(45, 58, 74, 0.15);

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT job_postings.*, pet_images.filename FROM job_postings LEFT JOIN pet_images ON pet_images.id = job_postings.id WHERE job_postings.id = ?");
+$stmt = $pdo->prepare("SELECT job_postings.*, pet_images.filename FROM job_postings LEFT JOIN pet_images ON pet_images.posting_id = job_postings.id WHERE job_postings.id = ?");
 $stmt->execute([$id]);
 $job = $stmt->fetch();
 

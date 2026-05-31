@@ -110,6 +110,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION["user"]['id']
     ]);
 
+    $posting_id = $pdo->lastInsertId();
+
+    $allowed_mime = ['image/jpeg', 'image/png', 'image/webp'];
+    $max_bytes    = 10 * 1024 * 1024; // 10 MB
+    $upload_dir   = __DIR__ . '/../public/uploads/';
+
+    $file = $_FILES['photo'] ?? null;
+
+    if ($file && $file['error'] === UPLOAD_ERR_OK) {
+        if ($file['size'] > $max_bytes) {
+            $_SESSION['error'] = "Filen är för stor. Max 10 MB.";
+            header('Location: /posting');
+            exit;
+        }
+
+        $mime = (new finfo(FILEINFO_MIME_TYPE))->file($file['tmp_name']);
+
+        if (!in_array($mime, $allowed_mime, true)) {
+            $_SESSION["error"] = "Filtypen är inte tillåten. Endast JPEG, PNG och WEBP är tillåtna.";
+            header('Location: /posting');
+            exit;
+        }
+
+        $ext = match($mime) {
+            'image/jpeg' => 'jpg',
+            'image/png'  => 'png',
+            'image/webp' => 'webp',
+        };
+
+        $filename = bin2hex(random_bytes(16)) . '.' . $ext;
+
+        if (!move_uploaded_file($file['tmp_name'], $upload_dir . $filename)) {
+            $_SESSION['error'] = "Det gick inte att spara filen.";
+            header('Location: /posting');
+            exit;
+        }
+
+        $stmt = $pdo->prepare("
+        INSERT INTO pet_images (user_id, posting_id, filename, original_name, mime_type, file_size_bytes)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ");
+        $stmt->execute([
+                $_SESSION["user"]['id'],
+                $posting_id,
+                $filename,
+                $file['name'],
+                $mime,
+                $file['size'],
+        ]);
+    }
+
     header('Location: /');
     exit;
 
@@ -122,14 +173,14 @@ if (empty($_SESSION["csrf_token"])) {
 <?php require_once '../includes/header.php'; ?>
     <main>
         <div class="posting-container">
-            <form class="posting-card" id="posting-form" method="POST" action="/posting">
+            <form class="posting-card" id="posting-form" method="POST" action="/posting" enctype="multipart/form-data">
                 <div class="posting-card-content-1">
                     <!--<img class="posting-card-image"
                         src="https://www.borrowmydoggy.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4ij0poqn%2Fproduction%2Fe24bfbd855cda99e303975f2bd2a1bf43079b320-800x600.jpg&w=1080&q=80"
                         alt="Bild över husdjuret">-->
                     <div class="posting-card-image-placeholder">
                         <label class="posting-uploade-image-btn" for="posting-file-hide">Ladda up bild</label>
-                        <input name="photo" id="posting-file-hide" type="file">
+                        <input name="photo" id="posting-file-hide" type="file" accept="image/jpeg, image/png, image/webp">
                     </div>
                 </div>
                 <div class="posting-card-content-2">

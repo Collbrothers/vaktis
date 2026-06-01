@@ -735,7 +735,8 @@ nav li:first-child{
 @media (min-width: 800px){
     .index-container{
         width: 100%;
-        height: min-content;
+        min-height: 100vh;
+        max-height: min-content;
         flex-direction: row;
         flex-wrap: wrap;
         padding-top: 2.5rem;
